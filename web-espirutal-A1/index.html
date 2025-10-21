@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Iniciativa de Dios en la Salvación</title>
+    <!-- Carga de Playfair Display y Alegreya desde Google Fonts para un toque sagrado y legible -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        //Configuración del tema, colores y fuentes -->
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-gold': '#FFD700', // Oro brillante para acentos
+                        'dark-bg': '#000000', // Fondo negro absoluto para la oscuridad
+                        'light-text': '#FFFFFF', // Texto blanco puro para alto contraste
+                        // Color semi-transparente suave (Blanco/Crema con 20% de opacidad)
+                        'semi-transparent-card': 'rgba(240, 248, 255, 0.2)',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        title: ['Playfair Display', 'serif'],
+                        serif: ['Alegreya', 'Georgia', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <!-- Contenido de Fondo (Encabezado y Mensaje Principal) -->
+    <header id="top-of-page" class="sacred-gradient p-6 md:p-12 text-center text-light-text">
+        <h1 class="text-4xl md:text-6xl font-title font-extrabold text-primary-gold mb-4 drop-shadow-lg">
+            La Mano Extendida: Dios Inicia la Salvación
+        </h1>
+        <p class="text-xl md:text-2xl italic max-w-4xl mx-auto text-light-text/80 font-serif">
+            "En esto consiste el amor: no en que nosotros hayamos amado a Dios, sino en que él nos amó a nosotros y
+            envió a su Hijo." (1 Juan 4:10)
+        </p>
+    </header>
+
+    <!-- Barra de Navegación (Normal - NO STICKY) - Fondo semi-transparente con sombra de luz -->
+    <nav
+        class="bg-semi-transparent-card shadow-xl py-3 text-center border-b-4 border-primary-gold/50 z-20 inner-light-shadow">
+        <div class="flex flex-wrap justify-center space-x-2 md:space-x-8">
+
+            <a href="#tema-reflexion" onclick="showSection('tema-reflexion'); return false;" class="nav-item text-light-text font-bold text-lg md:text-xl uppercase tracking-widest px-4 py-2 rounded-lg transition duration-200 
+                       hover:text-primary-gold hover:bg-black/50 focus:outline-none">
+                Tema de Reflexión
+            </a>
+
+            <a href="#cuestionario" onclick="showSection('cuestionario'); return false;" class="nav-item text-light-text font-bold text-lg md:text-xl uppercase tracking-widest px-4 py-2 rounded-lg transition duration-200 
+                       hover:text-primary-gold hover:bg-black/50 focus:outline-none">
+                Cuestionario
+            </a>
+
+            <a href="#recursos-biblicos" onclick="showSection('recursos-biblicos'); return false;" class="nav-item text-light-text font-bold text-lg md:text-xl uppercase tracking-widest px-4 py-2 rounded-lg transition duration-200 
+                       hover:text-primary-gold hover:bg-black/50 focus:outline-none">
+                Recursos Bíblicos
+            </a>
+            <!-- Se eliminó la opción de "Comentarios" del menú -->
+        </div>
+    </nav>
+
+    <main class="p-4 md:p-8">
+
+        <!-- 1. Sección de Introducción (Tema de Reflexión) -->
+        <section id="tema-reflexion"
+            class="content-section text-center text-light-text mt-8 inner-light-shadow rounded-2xl">
+            <h2
+                class="text-3xl font-title font-bold text-primary-gold mb-6 border-b pb-3 border-dark-bg/50 drop-shadow-lg">
+                La Raíz de la Gracia
+            </h2>
+            <p
+                class="text-xl leading-relaxed bg-semi-transparent-card p-6 rounded-xl shadow-2xl border border-primary-gold/30 font-serif">
+                El tema central de nuestra fe es la asombrosa verdad de la iniciativa divina. Antes de que pudiéramos
+                buscarlo, antes de que concibiéramos la necesidad, Dios ya había puesto en marcha el plan de nuestra
+                redención. La salvación no es una respuesta al esfuerzo humano, sino la manifestación de Su amor y
+                Gracia incondicional. Esta verdad nos invita a la reflexión profunda, reconociendo Su obra desde el
+                inicio y el sacrificio perfecto de Su Hijo.
+            </p>
+        </section>
+
+        <!-- 2. Tarjeta de Preguntas (Cuestionario) -->
+        <div id="cuestionario"
+            class="content-section quiz-container bg-semi-transparent-card rounded-2xl p-6 md:p-10 border-4 border-primary-gold text-light-text shadow-2xl mt-8 inner-light-shadow">
+
+            <h2
+                class="text-3xl font-title font-bold text-primary-gold mb-6 border-b pb-3 border-dark-bg/50 drop-shadow-lg">
+                Cuestionario: Reflexión Profunda sobre la Gracia
+            </h2>
+
+            <div id="questions-container" class="space-y-6 font-serif">
+                <!-- Las preguntas se cargarán aquí por JS -->
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-primary-gold/30 text-center space-x-4">
+                <button id="cite-button"
+                    class="bg-primary-gold text-dark-bg font-bold py-3 px-8 rounded-full shadow-lg hover:bg-opacity-80 transition duration-300 ease-in-out text-lg transform hover:scale-105"
+                    onclick="toggleCites()">
+                    Mostrar Citas
+                </button>
+                <button id="answer-button"
+                    class="bg-primary-gold text-dark-bg font-bold py-3 px-8 rounded-full shadow-lg hover:bg-opacity-80 transition duration-300 ease-in-out text-lg transform hover:scale-105"
+                    onclick="toggleAnswers()">
+                    Mostrar Respuestas
+                </button>
+            </div>
+        </div>
+
+        <!-- 3. Recursos Bíblicos ACTUALIZADOS -->
+        <section id="recursos-biblicos" class="content-section mt-8 inner-light-shadow rounded-2xl">
+            <h2
+                class="text-3xl font-title font-bold text-primary-gold mb-6 border-b pb-3 border-dark-bg/50 drop-shadow-lg text-center">
+                Recursos Bíblicos para Profundizar
+            </h2>
+            <div
+                class="bg-semi-transparent-card p-8 rounded-xl shadow-2xl border border-primary-gold/30 space-y-5 font-serif">
+
+                <h3 class="text-2xl font-title font-semibold text-primary-gold">La Iniciativa y el Amor de Dios</h3>
+                <div class="text-lg">
+                    <span class="font-extrabold text-primary-gold">1 Juan 4:10:</span>
+                    <span class="italic text-light-text/80">"En esto consiste el amor: no en que nosotros hayamos amado
+                        a Dios, sino en que él nos amó a nosotros y envió a su Hijo para que fuese propiciación por
+                        nuestros pecados."</span>
+                </div>
+                <div class="text-lg">
+                    <span class="font-extrabold text-primary-gold">Juan 3:16:</span>
+                    <span class="italic text-light-text/80">"Porque de tal manera amó Dios al mundo, que ha dado a su
+                        Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna."</span>
+                </div>
+                <div class="text-lg">
+                    <span class="font-extrabold text-primary-gold">Romanos 5:8:</span>
+                    <span class="italic text-light-text/80">"Mas Dios muestra su amor para con nosotros, en que siendo
+                        aún pecadores, Cristo murió por nosotros."</span>
+                </div>
+                <div class="text-lg">
+                    <span class="font-extrabold text-primary-gold">1 Juan 4:19:</span>
+                    <span class="italic text-light-text/80">"Nosotros le amamos a él, porque él nos amó primero."</span>
+                </div>
+
+                <h3 class="text-2xl font-title font-semibold text-primary-gold pt-4 border-t border-primary-gold/20">La
+                    Gracia, la Atracción Divina y la Resistencia</h3>
+                <div class="text-lg">
+                    <span class="font-extrabold text-primary-gold">Juan 5:40:</span>
+                    <span class="italic text-light-text/80">"Y no queréis venir a mí para que tengáis vida." (Muestra la
+                        resistencia a la gracia).</span>
+                </div>
+                <div class="text-lg">
+                    <span class="font-extrabold text-primary-gold">Juan 6:44:</span>
+                    <span class="italic text-light-text/80">"Ninguno puede venir a mí, si el Padre que me envió no le
+                        trajere; y yo le resucitaré en el día postrero." (Muestra la necesidad de la atracción
+                        divina).</span>
+                </div>
+                <div class="text-lg">
+                    <span class="font-extrabold text-primary-gold">Juan 3:19:</span>
+                    <span class="italic text-light-text/80">"Y esta es la condenación: que la luz vino al mundo, y los
+                        hombres amaron más las tinieblas que la luz, porque sus obras eran malas." (Muestra la
+                        responsabilidad humana al rechazar la luz).</span>
+                </div>
+
+                <h3 class="text-2xl font-title font-semibold text-primary-gold pt-4 border-t border-primary-gold/20">El
+                    Papel del Espíritu Santo y la Transformación</h3>
+                <div class="text-lg">
+                    <span class="font-extrabold text-primary-gold">Efesios 2:8-9:</span>
+                    <span class="italic text-light-text/80">"Porque por gracia sois salvos por medio de la fe; y esto no
+                        de vosotros, pues es don de Dios; no por obras, para que nadie se gloríe." (Fundamento de la
+                        Gracia).</span>
+                </div>
+                <div class="text-lg">
+                    <span class="font-extrabold text-primary-gold">Juan 16:8:</span>
+                    <span class="italic text-light-text/80">"Y cuando él venga, convencerá al mundo de pecado, de
+                        justicia y de juicio." (La obra convincente del Espíritu Santo).</span>
+                </div>
+                <div class="text-lg">
+                    <span class="font-extrabold text-primary-gold">2 Corintios 5:17:</span>
+                    <span class="italic text-light-text/80">"De modo que si alguno está en Cristo, nueva criatura es;
+                        las cosas viejas pasaron; he aquí todas son hechas nuevas." (La obra de la regeneración).</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Se eliminó la sección de Comentarios -->
+    </main>
+
+    <!-- FOOTER: Pie de página simplificado -->
+    <footer
+        class="bg-semi-transparent-card border-t-4 border-primary-gold/50 mt-12 py-4 text-light-text/70 text-center inner-light-shadow">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Derechos de autor simplificados -->
+            <p class="text-sm">
+                &copy; 2025 La Iniciativa de Dios. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+
+    <!-- JavaScript para la lógica de Preguntas y Respuestas y la navegación -->
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
